@@ -11,7 +11,9 @@
     <h1>User's Info</h1>
     <p>Full Name: {{one_user.first_name}} {{one_user.last_name}}</p>
     <p>Email: {{one_user.email}}</p>
-
+    <p>Created On: {{one_user.created_at.strftime("%b %d %Y %X")}}</p>
+    <p>Last Updated: {{one_user.updated_at.strftime("%b %d %Y %X")}}</p>
+    <a href="/users"> Home </a>|| <a href="/users/{{one_user.id}}/edit">Edit User</a> || <a href="/users/{{one_user.id}}/delete">Delete User</a></p>
 
 </body>
 </html>

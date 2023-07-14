@@ -24,8 +24,8 @@ def new_user():
 def create_user():
     print(request.form)
     #a call to our dog class to create a user from our request form
-    User.create(request.form)
-    return redirect('/users')
+    id = User.create(request.form)
+    return redirect(f'/users/{id}/view')
 
 
 @app.route('/users/<int:id>/view')
@@ -54,12 +54,8 @@ def update_user(id):
         'email':request.form['email'],
         'id': id
     }
-    # data ={
-    #     **request.form, #unpacking
-    #     'id': id
-    # }
     User.update(data)
-    return redirect('/')
+    return redirect(f'/users/{id}/view')
 
 
 @app.route('/users/<int:id>/delete')
